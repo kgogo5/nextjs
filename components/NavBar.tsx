@@ -31,7 +31,9 @@ export default function NavBar() {
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
           }
           img {
-            max-width: 100px;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
             margin-bottom: 5px;
           }
           nav a {
