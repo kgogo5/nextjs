@@ -19,16 +19,8 @@ export default function Home({
   results,
 }: InferGetServerSidePropsType<GetServerSideProps>) {
   const router = useRouter();
-  const onClick = (id: string | number, title: string) => {
-    router.push(
-      {
-        pathname: `/movies/${id}`,
-        query: {
-          title,
-        },
-      },
-      `/movies/${id}`
-    );
+  const onClick = (id: number, title: string) => {
+    router.push(`/movies/${title}/${id}`);
   };
 
   return (
@@ -49,11 +41,7 @@ export default function Home({
           />
           <h4>
             <Link
-              href={{
-                pathname: `/movies/${movie?.id}`,
-                query: { title: movie?.original_title },
-              }}
-              as={`/movies/${movie?.id}`}
+              href={`/movies/${movie.original_title}/${movie.id}`}
               legacyBehavior
             >
               <a>{movie?.original_title}</a>
